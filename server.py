@@ -1,17 +1,17 @@
-import spotipy.oauth2 as oauth2
+import spotipy.oauth2
 from spotipy.oauth2 import SpotifyOAuth
-from spotipy.oauth2 import SpotifyClientCredentials
-import credentials
 import spotipy
 from flask import Flask, request
-import os
 
+
+CLIENT_ID = "679be63979e04cc496a45c75d2afa493"
+CLIENT_SECRET = "6ecdc388b44a4c4fb9adf33afb833fb9"
 port = 5000
-redirectURI = "https://gqp7jsnrfr.us-east-1.awsapprunner.com:5000/callback"
+redirectURI = "http://127.0.0.1:5000/callback"
 #authManager = SpotifyClientCredentials(client_id=credentials.CLIENT_ID, client_secret=credentials.CLIENT_SECRET)
 #sp = spotipy.Spotify(auth_manager=authManager)
-sp_oauth = SpotifyOAuth(redirect_uri=redirectURI, client_id=credentials.CLIENT_ID,
-                        client_secret=credentials.CLIENT_SECRET, scope='user-read-recently-played')
+sp_oauth = SpotifyOAuth(redirect_uri=redirectURI, client_id=CLIENT_ID,
+                        client_secret=CLIENT_SECRET, scope='user-read-recently-played')
 
 auth_url = sp_oauth.get_authorize_url()
 app = Flask(__name__)
@@ -47,3 +47,4 @@ def test():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port)
+
