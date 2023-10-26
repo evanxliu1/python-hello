@@ -1,55 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Top Tracks</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f6f6f6;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
+<!doctype html>
+<a href='/toptracks'>toptracks!</a>
+<p></p>
+  <table border = 1>
+    {% for key in tracknamelist %}
 
-        a {
-            text-decoration: none;
-            color: #007BFF;
-            font-size: 24px;
-            display: block;
-            margin: 20px 0;
-        }
+    <tr>
+       <th> {{ key }} </th>
+    </tr>
 
-        table {
-            border-collapse: collapse;
-            width: 60%;
-            margin: 20px auto;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px;
-        }
-
-        td {
-            padding: 8px;
-        }
-    </style>
-</head>
-<body>
-    <a href='/toptracks'>Top Tracks!</a>
-    <p></p>
-    <table>
-        {% for key in tracknamelist %}
-        <tr>
-            <th>{{ key }}</th>
-        </tr>
-        {% endfor %}
-    </table>
-</body>
-</html>
+    {% endfor %}
+ </table>
