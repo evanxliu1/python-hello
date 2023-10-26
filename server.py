@@ -7,7 +7,7 @@ from flask import Flask, request
 CLIENT_ID = "679be63979e04cc496a45c75d2afa493"
 CLIENT_SECRET = "6ecdc388b44a4c4fb9adf33afb833fb9"
 port = 5000
-redirectURI = "https://wfbjw6avrv.us-east-1.awsapprunner.com:5000/callback"
+redirectURI = "https://wfbjw6avrv.us-east-1.awsapprunner.com/callback"
 sp_oauth = SpotifyOAuth(redirect_uri=redirectURI, client_id=CLIENT_ID,
                          client_secret=CLIENT_SECRET, scope='user-read-recently-played')
 
