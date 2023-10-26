@@ -2,15 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>top track</title>
+    <title>Top Tracks</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f6f6f6;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 24px;
+            display: block;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056B3;
+        }
+    </style>
 </head>
 <body>
-<a href='/'>homepage!</a>
-<p></p>
+    <a href='/'>Go to Homepage</a>
+    <p>Welcome to the Top Tracks page.</p>
     <form method="post" action="/toptracks">
-        <input type="submit" value="short_term" name="action"/>
-        <input type="submit" value="medium_term" name="action"/>
-        <input type="submit" value="long_term" name="action" />
+        <input type="submit" value="Short Term" name="action" />
+        <input type="submit" value="Medium Term" name="action" />
+        <input type="submit" value="Long Term" name="action" />
     </form>
 </body>
 </html>
