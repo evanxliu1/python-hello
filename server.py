@@ -16,7 +16,7 @@ auth_url = sp_oauth.get_authorize_url()
 app = Flask(__name__)
 @app.route("/")
 def hello_world():
-    return f'<a href="{auth_url}">login to spotify test 2!</a>'
+    return f'<a href="{auth_url}">login to spotify test 3!</a>'
 
 @app.route('/callback')
 def callback():
