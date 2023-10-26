@@ -1,7 +1,7 @@
 import spotipy.oauth2
 from spotipy.oauth2 import SpotifyOAuth
 import spotipy
-from flask import Flask
+from flask import Flask, request
 
 
 CLIENT_ID = "679be63979e04cc496a45c75d2afa493"
