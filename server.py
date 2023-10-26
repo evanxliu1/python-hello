@@ -1,6 +1,6 @@
 # import spotipy.oauth2
 # from spotipy.oauth2 import SpotifyOAuth
-# import spotipy
+import spotipy
 from flask import Flask
 
 
