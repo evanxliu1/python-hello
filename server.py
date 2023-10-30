@@ -26,7 +26,7 @@ def hello_world():
 def callback():
      tracklist = []
      authorization_code = request.args.get('code')
-     print(authorization_code)
+     session['authorization_code'] = authorization_code
      if authorization_code:
          access_token = sp_oauth.get_access_token(authorization_code,check_cache=False)
          sp.set_auth(access_token['access_token'])
@@ -42,6 +42,13 @@ def getTopTrack(term):
 
 @app.route('/toptracks', methods=['GET', 'POST'])
 def topTracks():
+    access_token = session['access_token']
+    if not access_token:
+        authorization_code = session['authorization_code']
+        if authorization_code:
+            access_token = sp_oauth.get_access_token(authorization_code, check_cache=False)
+            sp.set_auth(access_token['access_token'])
+            session['session_access_token'] = access_token['access_token']
     topTrack = []
     tracklist = []
     if request.method == 'POST':
@@ -56,5 +63,7 @@ def topTracks():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port)
+
+
 
 
