@@ -27,10 +27,6 @@ def callback():
      tracklist = []
      authorization_code = request.args.get('code')
      session['authorization_code'] = authorization_code
-     if authorization_code:
-         access_token = sp_oauth.get_access_token(authorization_code,check_cache=False)
-         sp.set_auth(access_token['access_token'])
-         session['session_access_token'] = access_token['access_token']
      return render_template("top_track.html")
 
 def getTopTrack(term):
@@ -42,13 +38,14 @@ def getTopTrack(term):
 
 @app.route('/toptracks', methods=['GET', 'POST'])
 def topTracks():
-    access_token = session['access_token']
-    if not access_token:
+    session_access_token = session['session_access_token']
+    if not session_access_token:
         authorization_code = session['authorization_code']
         if authorization_code:
             access_token = sp_oauth.get_access_token(authorization_code, check_cache=False)
-            sp.set_auth(access_token['access_token'])
             session['session_access_token'] = access_token['access_token']
+            session_access_token = access_token['access_token']
+    sp.set_auth(session_access_token)
     topTrack = []
     tracklist = []
     if request.method == 'POST':
